@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flatdango</title>
+  <style>
+  body {
+  background-color: #E6F1F8;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  }
+
+  /* Header Styles */
+  header {
+  background-color: #FF8C00;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  }
+
+  header img {
+  height: 80px;
+  margin-left: 20px;
+  }
+
+  /* Navigation Styles */
+  nav {
+  background-color: #FFA07A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  }
+
+  nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 24px;
+  }
+
+  nav a:hover {
+  text-shadow: 2px 2px #333;
+  }
+
+  /* Main Styles */
+  main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  }
+
+  .film {
+  width: 30%;
+  margin-bottom: 20px;
+  border: 2px solid #FF8C00;
+  background-color: #fff;
+  box-shadow: 2px 2px #ccc;
+  position: relative;
+  }
+
+  .film.sold-out:before {
+  content: 'SOLD OUT';
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #FF8C00;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 10px;
+  }
+
+  .film img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  }
+
+  .film h3 {
+  margin: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  }
+
+  .film p {
+  margin: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+  }
+
+  .film button {
+  background-color: #FF8C00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  transition: background-color 0.2s ease-in-out;
+  }
+
+  .film button:hover {
+  background-color: #FFA07A;
+  cursor: pointer;
+  }
+
+  /* Sidebar Styles */
+  aside {
+  background-color: #FFA07A;
+  padding: 20px;
+  width: 30%;
+  margin-left: 20px;
+  box-shadow: 2px 2px #ccc;
+  }
+
+  aside h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 20px 0;
+  }
+
+  aside form {
+  display: flex;
+  flex-direction: column;
+  }
+
+  aside label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  }
+
+  aside input,
+  aside textarea,
+  aside select {
+  font-size: 16px;
+  padding: 10
+
+  px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  }
+
+  aside button {
+  background-color: #fff;
+  color: #FF8C00;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px;
+  }
+
+  aside button:hover {
+  background-color: #E6F1F8;
+  cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Flatdango</h1>
+    <h2>Welcome to Flatiron Movie Theater!</h2>
+  </header>
+  <main>
+    <div class="film-details">
+        <h2>Screen 1</h2>
+        <div class="film-poster"><img src="https://m.media-amazon.com/images/M/MV5BNDExMzhiZTktMjkwOS00ZDM1LWEyYmQtOWEyY2JjMjBjOTBkXkEyXkFqcGdeQXVyMTQ2MjQyNDc@._V1_.jpg" alt="The Giant Gila Monster poster"></div>
+        <section>
+        <div class="film-info">
+        <h3>The Giant Gila Monster</h3>
+        <p>Runtime: 108 minutes</p>
+        <p>Showtime: 04:00PM</p>
+        <p>Available tickets: <span id="available-tickets1">3</span></p><button class="buy-ticket" data-ticket="The Giant Gila Monster">Buy Ticket</button>
+        </div>
+        </section>
+        </div>
+        <div class="film-details">
+        <h2>Screen 2</h2>
+        <div class="film-poster"><img src="https://m.media-amazon.com/images/M/MV5BZDE2NjYyMTUtYmUxNS00OWQxLWJkZDItOTBhM2UzODI2OGY5XkEyXkFqcGdeQXVyNTc4Njg5MjA@._V1_.jpg" alt="Manos: The Hands of Fate poster"></div>
+        <section>
+        <div class="film-info">
+        <h3>Manos: The Hands of Fate</h3>
+        <p>Runtime: 70 minutes</p>
+        <p>Showtime: 07:00PM</p>
+        <p>Available tickets: <span id="available-tickets2">10</span></p><button class="buy-ticket" data-ticket="Manos: The Hands of Fate">Buy Ticket</button>
+        </div>
+        </section>
+        </div>
+        <div class="film-list">
+        <h2>All Movies</h2>
+        <ul id="films">
+        <!-- Placeholder li element that can be removed with JS -->
+        <li>Loading movies...</li>
+        </ul>
+        </div>
+        </main>
+        <script src="index.js"></script>
+        <aside>
+  <footer>
+    <p>© 2023 Flatiron Movie Theater</p>
+    <p>Contact us at info@flatironmovietheater.com</p>
+  </footer>
+  <script>
+// Function to buy ticket
+function buyTicket(ticketType) {
+  // Code to buy ticket
+  console.log(`Bought ${ticketType} ticket.`);
+  alert(`Bought ${ticketType} ticket.`);
+}
+
+// Check if there are tickets available
+if (currentTickets > 0) {
+  // Decrease the available tickets by 1
+  const newTickets = currentTickets - 1;
+  availableTickets.textContent = newTickets;
+  
+  // Buy the ticket
+  buyTicket(ticketType);
+} else {
+  console.log(`Sorry, no more tickets available for ${ticketType}.`);
+  alert(`Sorry, no more tickets available for ${ticketType}.`);
+}
+
+  </script>
+</body>
+</html>
